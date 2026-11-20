@@ -42,6 +42,7 @@ public extension URL {
     }
 
     var isShapeFile: Bool {
+        if pathExtension.lowercased() == "shape" { return true } // local patch: UTI is undeclared without the app
         #if canImport(UniformTypeIdentifiers)
         if let contentType {
             return contentType.conforms(to: .shape)
